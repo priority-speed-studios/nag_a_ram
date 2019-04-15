@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkApplicationWindow" id="window_main">
+    <property name="width_request">500</property>
+    <property name="height_request">200</property>
+    <property name="can_focus">False</property>
+    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkLayout">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkEntry" id="inputLabel">
+            <property name="width_request">500</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="y">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">Check</property>
+            <property name="width_request">100</property>
+            <property name="height_request">50</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="halign">start</property>
+            <property name="valign">start</property>
+            <signal name="clicked" handler="check" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">89</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="outputLabel">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">140</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
