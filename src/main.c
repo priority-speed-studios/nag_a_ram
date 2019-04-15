@@ -12,7 +12,12 @@ void check()
     //breakpoint
     strcpy(outputString,inputString); //replace strcpy with arko's stuff
     //breakpoint
-    gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(builder,"outputLabel")),outputString);
+    GtkTextBuffer* buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtk_builder_get_object(builder,"outputLabel")));
+    GtkTextIter end,start;
+    gtk_text_buffer_get_end_iter(buffer,&end);
+    gtk_text_buffer_get_start_iter(buffer,&start);
+    gtk_text_buffer_delete(buffer,&start,&end);;
+    gtk_text_buffer_insert(buffer,&end,outputString,-1);
 }
 
 int main(int argc,char** argv)
