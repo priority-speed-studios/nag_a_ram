@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 project(nag_a_ram)
 FILE(GLOB CSources src/*.c)
 add_executable(${PROJECT_NAME} ${CSources})
-target_include_directories(${PROJECT_NAME} PRIVATE .)
+target_include_directories(${PROJECT_NAME} PRIVATE ./includes)
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
@@ -16,4 +16,4 @@ LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
 ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${GTK3_LIBRARIES})
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/mainWindow.glade ${CMAKE_CURRENT_BINARY_DIR}/mainWindow.glade COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/layouts/mainWindow.glade ${CMAKE_CURRENT_BINARY_DIR}/mainWindow.glade COPYONLY)
