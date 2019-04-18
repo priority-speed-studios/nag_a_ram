@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static char* wordFile="";
+static char wordFile[100]="";
 
 const char *process(const char *input)
 {
@@ -62,8 +62,7 @@ void plugin_set(GtkFileChooserButton *button)
 void wordlist_set(GtkFileChooserButton *button)
 {
     const char* fileName = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(button));
-    //strcpy(wordFile,fileName);
-    //ERROR: PLEASE FIX
+    strcpy(wordFile,fileName);
     if(!algorithm)
         return;
     int code = setup(fileName);
