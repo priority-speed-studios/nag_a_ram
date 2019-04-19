@@ -16,7 +16,6 @@
     </patterns>
   </object>
   <object class="GtkApplicationWindow" id="window_main">
-    <property name="name">window_main</property>
     <property name="width_request">500</property>
     <property name="height_request">500</property>
     <property name="can_focus">False</property>
@@ -30,20 +29,18 @@
         <property name="can_focus">False</property>
         <child>
           <object class="GtkEntry" id="inputLabel">
-            <property name="name">inputLabel</property>
             <property name="width_request">500</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="y">130</property>
+            <property name="y">170</property>
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="button">
             <property name="label" translatable="yes">Check</property>
-            <property name="name">check</property>
             <property name="width_request">100</property>
             <property name="height_request">50</property>
             <property name="visible">True</property>
@@ -53,17 +50,16 @@
             <property name="valign">start</property>
             <signal name="clicked" handler="check" swapped="no"/>
             <style>
-              <class name="buttoN"/>
+              <class name="button"/>
             </style>
           </object>
           <packing>
-            <property name="x">200</property>
-            <property name="y">220</property>
+            <property name="x">191</property>
+            <property name="y">269</property>
           </packing>
         </child>
         <child>
           <object class="GtkTextView" id="outputLabel">
-            <property name="name">outputLabel</property>
             <property name="width_request">500</property>
             <property name="height_request">150</property>
             <property name="visible">True</property>
@@ -76,7 +72,7 @@
             <property name="monospace">True</property>
           </object>
           <packing>
-            <property name="y">320</property>
+            <property name="y">339</property>
           </packing>
         </child>
         <child>
@@ -108,11 +104,12 @@
             </child>
             <child>
               <object class="GtkLabel">
+                <property name="name">wordlist</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Wordlist</property>
                 <style>
-                  <class name="labels"/>
+                  <class name="wordlistlbl"/>
                 </style>
               </object>
               <packing>
@@ -126,7 +123,7 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Algorithm</property>
                 <style>
-                  <class name="labels"/>
+                  <class name="algorithmlbl"/>
                 </style>
               </object>
               <packing>
@@ -136,14 +133,13 @@
             </child>
             <child>
               <object class="GtkFileChooserButton" id="wordlist">
-                <property name="name">wordlist</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="filter">wordfilter</property>
                 <property name="title" translatable="yes"/>
                 <signal name="file-set" handler="wordlist_set" swapped="no"/>
                 <style>
-                  <class name="buttoN"/>
+                  <class name="wordlist"/>
                 </style>
               </object>
               <packing>
@@ -153,14 +149,13 @@
             </child>
             <child>
               <object class="GtkFileChooserButton" id="algo">
-                <property name="name">algo</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="filter">algoFilter</property>
                 <property name="title" translatable="yes"/>
                 <signal name="file-set" handler="plugin_set" swapped="no"/>
                 <style>
-                  <class name="buttoN"/>
+                  <class name="algorithm"/>
                 </style>
               </object>
               <packing>
@@ -170,43 +165,97 @@
             </child>
           </object>
           <packing>
-            <property name="x">10</property>
-            <property name="y">25</property>
+            <property name="x">19</property>
+            <property name="y">76</property>
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
-            <property name="width_request">100</property>
+          <object class="GtkMenuBar" id="main_menu">
+            <property name="width_request">500</property>
+            <property name="height_request">20</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Your Text</property>
+            <child>
+              <object class="GtkMenuItem">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_File</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem">
+                        <property name="label">gtk-new</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="main_menu_quit">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="gtk_main_quit" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <style>
+                  <class name="fileitem"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Help</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem">
+                        <property name="label">gtk-about</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <style>
+                  <class name="helpitem"/>
+                </style>
+              </object>
+            </child>
             <style>
-              <class name="labels"/>
+              <class name="menubar"/>
             </style>
           </object>
           <packing>
-            <property name="x">200</property>
-            <property name="y">100</property>
+            <property name="x">1</property>
+            <property name="y">1</property>
           </packing>
         </child>
-        <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Possible output</property>
-            <style>
-              <class name="labels"/>
-            </style>
-          </object>
-          <packing>
-            <property name="x">200</property>
-            <property name="y">280</property>
-          </packing>
-        </child>
+        <style>
+          <class name="layout"/>
+        </style>
       </object>
     </child>
-    <style>
-      <class name="background"/>
-    </style>
   </object>
 </interface>
