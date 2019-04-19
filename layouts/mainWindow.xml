@@ -16,6 +16,7 @@
     </patterns>
   </object>
   <object class="GtkApplicationWindow" id="window_main">
+    <property name="name">window_main</property>
     <property name="width_request">500</property>
     <property name="height_request">500</property>
     <property name="can_focus">False</property>
@@ -29,18 +30,20 @@
         <property name="can_focus">False</property>
         <child>
           <object class="GtkEntry" id="inputLabel">
+            <property name="name">inputLabel</property>
             <property name="width_request">500</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
           </object>
           <packing>
-            <property name="y">120</property>
+            <property name="y">130</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton">
             <property name="label" translatable="yes">Check</property>
+            <property name="name">check</property>
             <property name="width_request">100</property>
             <property name="height_request">50</property>
             <property name="visible">True</property>
@@ -49,14 +52,18 @@
             <property name="halign">start</property>
             <property name="valign">start</property>
             <signal name="clicked" handler="check" swapped="no"/>
+            <style>
+              <class name="buttoN"/>
+            </style>
           </object>
           <packing>
             <property name="x">200</property>
-            <property name="y">210</property>
+            <property name="y">220</property>
           </packing>
         </child>
         <child>
           <object class="GtkTextView" id="outputLabel">
+            <property name="name">outputLabel</property>
             <property name="width_request">500</property>
             <property name="height_request">150</property>
             <property name="visible">True</property>
@@ -69,7 +76,7 @@
             <property name="monospace">True</property>
           </object>
           <packing>
-            <property name="y">300</property>
+            <property name="y">320</property>
           </packing>
         </child>
         <child>
@@ -104,6 +111,9 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Wordlist</property>
+                <style>
+                  <class name="labels"/>
+                </style>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -115,6 +125,9 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Algorithm</property>
+                <style>
+                  <class name="labels"/>
+                </style>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -123,11 +136,15 @@
             </child>
             <child>
               <object class="GtkFileChooserButton" id="wordlist">
+                <property name="name">wordlist</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="filter">wordfilter</property>
                 <property name="title" translatable="yes"/>
                 <signal name="file-set" handler="wordlist_set" swapped="no"/>
+                <style>
+                  <class name="buttoN"/>
+                </style>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -136,11 +153,15 @@
             </child>
             <child>
               <object class="GtkFileChooserButton" id="algo">
+                <property name="name">algo</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="filter">algoFilter</property>
                 <property name="title" translatable="yes"/>
                 <signal name="file-set" handler="plugin_set" swapped="no"/>
+                <style>
+                  <class name="buttoN"/>
+                </style>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -153,7 +174,39 @@
             <property name="y">25</property>
           </packing>
         </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Your Text</property>
+            <style>
+              <class name="labels"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">100</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Possible output</property>
+            <style>
+              <class name="labels"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">200</property>
+            <property name="y">280</property>
+          </packing>
+        </child>
       </object>
     </child>
+    <style>
+      <class name="background"/>
+    </style>
   </object>
 </interface>
