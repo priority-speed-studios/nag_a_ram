@@ -2,11 +2,11 @@
 #include "loader.h"
 
 
-//typedef union arko_is_star
-//{
-//    int seed;
-//    char string[100 + sizeof (int)];
-//} arko;
+///typedef union arko_is_star
+///{
+///    int seed;
+///    char string[100 + sizeof (int)];
+///} arko;
 
 StringFunctions algorithm=NULL;
 SetupFunctions setup=NULL;

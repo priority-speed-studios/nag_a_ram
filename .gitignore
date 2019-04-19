@@ -1,3 +1,4 @@
 *.txt.user
 Desktop*/
 *.so
+*.glade~
