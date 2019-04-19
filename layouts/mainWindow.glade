@@ -2,7 +2,19 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkFileFilter" id="algoFilter">
+    <patterns>
+      <pattern>*.so</pattern>
+      <pattern>*.dll</pattern>
+      <pattern>*.so.*</pattern>
+    </patterns>
+  </object>
   <object class="GtkTextBuffer" id="gtk_buffer"/>
+  <object class="GtkFileFilter" id="wordfilter">
+    <patterns>
+      <pattern>*.txt</pattern>
+    </patterns>
+  </object>
   <object class="GtkApplicationWindow" id="window_main">
     <property name="width_request">500</property>
     <property name="height_request">500</property>
@@ -113,6 +125,7 @@
               <object class="GtkFileChooserButton" id="wordlist">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="filter">wordfilter</property>
                 <property name="title" translatable="yes"/>
                 <signal name="file-set" handler="wordlist_set" swapped="no"/>
               </object>
@@ -125,6 +138,7 @@
               <object class="GtkFileChooserButton" id="algo">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="filter">algoFilter</property>
                 <property name="title" translatable="yes"/>
                 <signal name="file-set" handler="plugin_set" swapped="no"/>
               </object>
