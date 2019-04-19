@@ -33,6 +33,10 @@ int main(int argc, char** argv)
     gtk_init(&argc, &argv);
     builder = gtk_builder_new_from_file(widgetName(./mainWindow.glade));
     GtkWindow* window= GTK_WINDOW(gtk_builder_get_object(builder, widgetName(window_main)));
+    /*GtkFileChooserButton *algo= GTK_FILE_CHOOSER_BUTTON(
+                gtk_builder_get_object(builder, widgetName(algo))),
+            *wordlist = GTK_FILE_CHOOSER_BUTTON(
+                gtk_builder_get_object(builder, widgetName(wordlist)));*/
     gtk_widget_show(GTK_WIDGET(window));
     gtk_builder_connect_signals(builder, NULL);
     gtk_main();

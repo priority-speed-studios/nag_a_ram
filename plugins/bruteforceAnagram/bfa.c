@@ -58,7 +58,6 @@ int setup(const char* file)
     }
 	no_textArray = no;
     fclose(fp);
-    printf("Setup complete\n");
     fflush(stdout);
     return 0;
 }
