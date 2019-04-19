@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-gcc -shared -o libSameName.so -fPIC sameName.c
+gcc -shared -o lib$1.so -fPIC *.c
