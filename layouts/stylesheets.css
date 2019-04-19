@@ -1,15 +1,29 @@
-.background
-{
-    background: #1e1e1e;
+.button {
+    background: #ADFF2F;
+    font-size: 16px;
+}
+.button:hover {
+    transition: 200ms ease-in-out;
+    background: #7CFC00;
+    color: white;
+    font-size: 16px;
+}
+.button:active {
+    border-style: inset;
+}
+.menubar {
+    background: #ADFF2F;
+}
+.fileitem {
+    border-style: inset;
+}
+.helpitem {
+    border-style: inset;
+}
+.wordlist:hover {
+    background: #ADFF2F;
+}
+.algorithm:hover {
+    background: #ADFF2F;
 }
 
-.labels
-{
-    color: #ffffff;
-}
-
-.buttoN
-{
-    background-color: #002200;
-    color: #ffffff;
-}
