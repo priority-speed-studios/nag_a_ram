@@ -13,12 +13,19 @@
 }
 .menubar {
     background: #ADFF2F;
+    color: #FFFFFF
 }
 .fileitem {
     border-style: inset;
 }
+.fileitem:hover {
+    background: #ff00ff;
+}
 .helpitem {
     border-style: inset;
+}
+.helpitem:hover {
+    background: #ff00ff;
 }
 .output {
     border-style: inset;
