@@ -20,10 +20,7 @@
 .helpitem {
     border-style: inset;
 }
-.wordlist:hover {
-    background: #ADFF2F;
-}
-.algorithm:hover {
-    background: #ADFF2F;
+.output {
+    border-style: inset;
 }
 

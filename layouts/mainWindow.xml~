@@ -5,7 +5,6 @@
   <object class="GtkAboutDialog" id="aboutdialog">
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
-    <property name="deletable">False</property>
     <property name="program_name">nag_a_ram</property>
     <property name="version">v0.7b</property>
     <property name="comments" translatable="yes">A fast, anagram solver built using C and the GTK+ framework</property>
