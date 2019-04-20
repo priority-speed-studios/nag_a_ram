@@ -4,8 +4,8 @@
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkAboutDialog" id="aboutdialog">
     <property name="can_focus">False</property>
+    <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
-    <property name="deletable">False</property>
     <property name="program_name">nag_a_ram</property>
     <property name="version">v0.7b</property>
     <property name="comments" translatable="yes">A fast, anagram solver built using C and the GTK+ framework</property>
@@ -13,7 +13,8 @@
 Arkajyoti Banerjee
 Soham Kar</property>
     <property name="logo_icon_name">help-about</property>
-    <property name="license_type">mit-x11</property>
+    <property name="license_type">gpl-3-0</property>
+    <signal name="delete-event" handler="gtk_widget_hide" swapped="no"/>
     <child type="titlebar">
       <placeholder/>
     </child>
@@ -38,6 +39,7 @@ Soham Kar</property>
         </child>
       </object>
     </child>
+    <accelerator key="F4" signal="close" modifiers="GDK_MOD1_MASK"/>
   </object>
   <object class="GtkFileFilter" id="algoFilter">
     <patterns>
@@ -225,21 +227,6 @@ Soham Kar</property>
                   <object class="GtkMenu">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <child>
-                      <object class="GtkImageMenuItem">
-                        <property name="label">gtk-new</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkSeparatorMenuItem">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                    </child>
                     <child>
                       <object class="GtkImageMenuItem" id="main_menu_quit">
                         <property name="label">gtk-quit</property>
