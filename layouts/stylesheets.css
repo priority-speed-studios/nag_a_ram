@@ -1,0 +1,33 @@
+.button {
+    background: #ADFF2F;
+    font-size: 16px;
+}
+.button:hover {
+    transition: 200ms ease-in-out;
+    background: #7CFC00;
+    color: white;
+    font-size: 16px;
+}
+.button:active {
+    border-style: inset;
+}
+.menubar {
+    background: #ADFF2F;
+    color: #FFFFFF
+}
+.fileitem {
+    border-style: inset;
+}
+.fileitem:hover {
+    background: #ff00ff;
+}
+.helpitem {
+    border-style: inset;
+}
+.helpitem:hover {
+    background: #ff00ff;
+}
+.output {
+    border-style: inset;
+}
+
