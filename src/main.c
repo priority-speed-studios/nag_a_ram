@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include "loader.h"
 
-
-///typedef union arko_is_star
-///{
-///    int seed;
-///    char string[100 + sizeof (int)];
-///} arko;
-
 StringFunctions algorithm=NULL;
 SetupFunctions setup=NULL;
 GtkBuilder* builder=NULL;
@@ -42,8 +35,8 @@ int main(int argc, char** argv)
     gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(gtk_builder_get_object(builder,
                                                                                 widgetName(algo))),
                                         "../plugins/bruteforceAnagram/");
-    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(gtk_builder_get_object(builder,
-                                                                                widgetName(wordlist))),
+    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(
+                                            gtk_builder_get_object(builder,widgetName(wordlist))),
                                         "../wordlists/");
     gtk_widget_show(GTK_WIDGET(window));
     gtk_builder_connect_signals(builder, NULL);

@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.1 
+
+Copyright (C) 2019
+
+This file is part of nag_a_ram.
+
+nag_a_ram is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+nag_a_ram is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with nag_a_ram.  If not, see <http://www.gnu.org/licenses/>.
+
+Author: Anubhab Mukherjee, Arkajyoti Banerjee, Soham Kar
+
+-->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <!-- interface-license-type gplv3 -->
+  <!-- interface-name nag_a_ram -->
+  <!-- interface-description A fast, anagram solver built using C and the GTK+ framework -->
+  <!-- interface-copyright 2019 -->
+  <!-- interface-authors Anubhab Mukherjee, Arkajyoti Banerjee, Soham Kar -->
   <object class="GtkAboutDialog" id="aboutdialog">
     <property name="can_focus">False</property>
     <property name="destroy_with_parent">True</property>
@@ -94,8 +120,8 @@ Soham Kar</property>
             </style>
           </object>
           <packing>
-            <property name="x">191</property>
-            <property name="y">269</property>
+            <property name="x">200</property>
+            <property name="y">270</property>
           </packing>
         </child>
         <child>
@@ -120,8 +146,7 @@ Soham Kar</property>
         </child>
         <child>
           <object class="GtkGrid">
-            <property name="width_request">480</property>
-            <property name="height_request">80</property>
+            <property name="width_request">400</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -208,8 +233,8 @@ Soham Kar</property>
             </child>
           </object>
           <packing>
-            <property name="x">19</property>
-            <property name="y">76</property>
+            <property name="x">20</property>
+            <property name="y">80</property>
           </packing>
         </child>
         <child>
