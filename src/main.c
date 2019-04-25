@@ -5,6 +5,24 @@ StringFunctions algorithm=NULL;
 SetupFunctions setup=NULL;
 GtkBuilder* builder=NULL;
 
+void populate_widget()
+{
+    DIR *d;
+    struct dirent *dir;
+    d = opendir("./plugs");
+    GtkComboBoxText* combo = GTK_COMBO_BOX_TEXT(gtk_builder_get_object(builder,
+                                                                       widgetName(algosbox)));
+    if(d)
+    {
+        while ((dir = readdir(d)) != NULL)
+        {
+            if(dir->d_type != DT_REG)
+                continue;
+            gtk_combo_box_text_append(combo, NULL, dir->d_name);
+        }
+    }
+}
+
 void check()
 {
     const char* inputString = gtk_entry_get_text(
@@ -32,14 +50,12 @@ int main(int argc, char** argv)
     gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
                                               GTK_STYLE_PROVIDER(cssProvider),
                                               GTK_STYLE_PROVIDER_PRIORITY_USER);
-    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(gtk_builder_get_object(builder,
-                                                                                widgetName(algo))),
-                                        "../plugins/bruteforceAnagram/");
     gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(
                                             gtk_builder_get_object(builder,widgetName(wordlist))),
                                         "../wordlists/");
     gtk_widget_show(GTK_WIDGET(window));
     gtk_builder_connect_signals(builder, NULL);
+    populate_widget();
     gtk_main();
     g_object_unref(builder);
     return 0;
