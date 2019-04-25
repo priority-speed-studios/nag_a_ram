@@ -10,6 +10,6 @@ extern StringFunctions algorithm;
 extern SetupFunctions setup;
 extern GtkBuilder* builder;
 const char* process(const char* input);
-void plugin_set(GtkFileChooserButton *button);
+void plugin_set();
 
 #endif

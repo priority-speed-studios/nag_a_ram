@@ -53,6 +53,7 @@ Soham Kar</property>
           <object class="GtkButtonBox">
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
+            <signal name="button-press-event" handler="gtk_widget_hide" object="aboutdialog" swapped="yes"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -75,11 +76,6 @@ Soham Kar</property>
     </patterns>
   </object>
   <object class="GtkTextBuffer" id="gtk_buffer"/>
-  <object class="GtkFileFilter" id="wordfilter">
-    <patterns>
-      <pattern>*.txt</pattern>
-    </patterns>
-  </object>
   <object class="GtkApplicationWindow" id="window_main">
     <property name="width_request">500</property>
     <property name="height_request">500</property>
@@ -200,15 +196,10 @@ Soham Kar</property>
               </packing>
             </child>
             <child>
-              <object class="GtkFileChooserButton" id="algo">
+              <object class="GtkComboBoxText" id="algosbox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="filter">algoFilter</property>
-                <property name="title" translatable="yes">Select Algorithm file</property>
-                <signal name="file-set" handler="plugin_set" swapped="no"/>
-                <style>
-                  <class name="algorithm"/>
-                </style>
+                <signal name="changed" handler="plugin_set" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -311,5 +302,10 @@ Soham Kar</property>
         </style>
       </object>
     </child>
+  </object>
+  <object class="GtkFileFilter" id="wordfilter">
+    <patterns>
+      <pattern>*.txt</pattern>
+    </patterns>
   </object>
 </interface>
