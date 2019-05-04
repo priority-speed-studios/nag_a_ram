@@ -4,24 +4,30 @@
 StringFunctions algorithm=NULL;
 SetupFunctions setup=NULL;
 GtkBuilder* builder=NULL;
+int pluginsState=0;
 
 void populate_widget()
 {
     DIR *d;
+    pluginsState=1;
     struct dirent *dir;
     d = opendir("./plugs");
     GtkComboBoxText* combo = GTK_COMBO_BOX_TEXT(gtk_builder_get_object(builder,
                                                                        widgetName(algosbox)));
+    gtk_combo_box_text_remove_all(combo);
     if(d)
     {
         while ((dir = readdir(d)) != NULL)
         {
             if(dir->d_type != DT_REG)
                 continue;
-            gtk_combo_box_text_append(combo, NULL, dir->d_name);
+            gtk_combo_box_text_append_text(combo, dir->d_name);
         }
     }
+    closedir(d);
+    pluginsState=0;
 }
+
 
 void check()
 {
@@ -60,3 +66,4 @@ int main(int argc, char** argv)
     g_object_unref(builder);
     return 0;
 }
+

@@ -30,6 +30,7 @@ Author: Anubhab Mukherjee, Arkajyoti Banerjee, Soham Kar
   <!-- interface-authors Anubhab Mukherjee, Arkajyoti Banerjee, Soham Kar -->
   <object class="GtkAboutDialog" id="aboutdialog">
     <property name="can_focus">False</property>
+    <property name="resizable">False</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">nag_a_ram</property>
@@ -50,14 +51,19 @@ Soham Kar</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox">
+          <object class="GtkButtonBox" id="aboutBox">
             <property name="can_focus">False</property>
+            <property name="events">GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON1_MOTION_MASK | GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK | GDK_FOCUS_CHANGE_MASK | GDK_STRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK | GDK_VISIBILITY_NOTIFY_MASK | GDK_PROXIMITY_IN_MASK | GDK_PROXIMITY_OUT_MASK | GDK_SUBSTRUCTURE_MASK | GDK_SCROLL_MASK | GDK_TOUCH_MASK | GDK_SMOOTH_SCROLL_MASK | GDK_TOUCHPAD_GESTURE_MASK | GDK_TABLET_PAD_MASK</property>
+            <property name="homogeneous">True</property>
             <property name="layout_style">end</property>
-            <signal name="button-press-event" handler="gtk_widget_hide" object="aboutdialog" swapped="yes"/>
+            <child type="center">
+              <placeholder/>
+            </child>
           </object>
           <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
             <property name="position">0</property>
           </packing>
         </child>
@@ -76,6 +82,11 @@ Soham Kar</property>
     </patterns>
   </object>
   <object class="GtkTextBuffer" id="gtk_buffer"/>
+  <object class="GtkFileFilter" id="wordfilter">
+    <patterns>
+      <pattern>*.txt</pattern>
+    </patterns>
+  </object>
   <object class="GtkApplicationWindow" id="window_main">
     <property name="width_request">500</property>
     <property name="height_request">500</property>
@@ -254,6 +265,16 @@ Soham Kar</property>
                         <signal name="activate" handler="gtk_main_quit" swapped="no"/>
                       </object>
                     </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="main_menu_refresh">
+                        <property name="label">gtk-refresh</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="populate_widget" swapped="no"/>
+                      </object>
+                    </child>
                   </object>
                 </child>
                 <style>
@@ -302,10 +323,5 @@ Soham Kar</property>
         </style>
       </object>
     </child>
-  </object>
-  <object class="GtkFileFilter" id="wordfilter">
-    <patterns>
-      <pattern>*.txt</pattern>
-    </patterns>
   </object>
 </interface>
