@@ -14,6 +14,8 @@ const char *process(const char *input_)
 
 void plugin_set()
 {
+    if(pluginsState)
+        return;
     char fileName[50] = "./plugs/";
     strcat(fileName,gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(
                                            gtk_builder_get_object(builder,widgetName(algosbox)))));

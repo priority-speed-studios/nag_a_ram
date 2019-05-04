@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(nag_a_ram)
 project(nag_a_ram
-    VERSION "0.7.0")
+    VERSION "0.7.5")
 FILE(GLOB CSources src/*.c)
 add_executable(${PROJECT_NAME} ${CSources})
 target_include_directories(${PROJECT_NAME} PRIVATE ./includes)
