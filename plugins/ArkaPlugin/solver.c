@@ -32,7 +32,6 @@ int setup(const char* filename)
 		}
 		else
 		{
-			
 			forward_list* list = (forward_list*) malloc(sizeof(forward_list));
 			list -> begin = list -> end = NULL;
 			
