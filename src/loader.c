@@ -5,22 +5,28 @@
 
 static char wordFile[100]="";
 
-const char *process(const char *input)
+const char *process(const char *input_)
 {
+    char input[50];
+    strcpy(input,input_);
     return algorithm(input);
 }
 
-void plugin_set(GtkFileChooserButton *button)
+void plugin_set()
 {
-    const char* fileName = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(button));
-    void * dlh = dlopen(fileName+7, RTLD_NOW);
+    if(pluginsState)
+        return;
+    char fileName[50] = "./plugs/";
+    strcat(fileName,gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(
+                                           gtk_builder_get_object(builder,widgetName(algosbox)))));
+    void * dlh = dlopen(fileName, RTLD_NOW);
     if (!dlh)
     {
         GtkWidget* dialog = gtk_message_dialog_new (NULL,
                                                     GTK_DIALOG_DESTROY_WITH_PARENT,
                                                     GTK_MESSAGE_ERROR,
                                                     GTK_BUTTONS_CLOSE,
-                                                    "Error1: %s",
+                                                    "Error: %s",
                                                     dlerror());
         gtk_dialog_run (GTK_DIALOG (dialog));
         gtk_widget_destroy (dialog);
@@ -34,7 +40,7 @@ void plugin_set(GtkFileChooserButton *button)
                                                     GTK_DIALOG_DESTROY_WITH_PARENT,
                                                     GTK_MESSAGE_ERROR,
                                                     GTK_BUTTONS_CLOSE,
-                                                    "Error2: %s",
+                                                    "Error: %s",
                                                     dlerror());
         gtk_dialog_run (GTK_DIALOG (dialog));
         gtk_widget_destroy (dialog);
