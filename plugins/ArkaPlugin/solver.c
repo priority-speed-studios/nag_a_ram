@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "forward_list.c"
-#include "hash_table.c"
+#include "forward_list.h"
+#include "hash_table.h"
 
 GHashTable* map;
 
