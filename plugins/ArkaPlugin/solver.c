@@ -6,7 +6,7 @@ GHashTable* map;
 
 int setup(const char* filename)
 {	
-	FILE* fi = fopen(filename, "r");
+	FILE* fi = fopen(filename + 7, "r");
 	
 	if(!fi)
 		return 1;
