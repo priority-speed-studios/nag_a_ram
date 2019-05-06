@@ -14,7 +14,7 @@ unsigned int hash_table_value(const void* _var)
 		hash += *((int*) k) * *((int*) k) + *((int*) k) + *((int*) v);
 	/*
 		Szudizk's Function for x >= y
-		Here, (int) *k >= (int*) *v
+		Here, *((int*) k) >= *((int*) v)
 	*/
 	
 	return hash;
