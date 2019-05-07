@@ -89,7 +89,7 @@ Soham Kar</property>
   </object>
   <object class="GtkApplicationWindow" id="window_main">
     <property name="width_request">500</property>
-    <property name="height_request">500</property>
+    <property name="height_request">600</property>
     <property name="can_focus">False</property>
     <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child>
@@ -101,6 +101,7 @@ Soham Kar</property>
         <property name="can_focus">False</property>
         <child>
           <object class="GtkEntry" id="inputLabel">
+            <property name="name">spaceT</property>
             <property name="width_request">500</property>
             <property name="height_request">80</property>
             <property name="visible">True</property>
@@ -129,26 +130,6 @@ Soham Kar</property>
           <packing>
             <property name="x">200</property>
             <property name="y">270</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkTextView" id="outputLabel">
-            <property name="width_request">500</property>
-            <property name="height_request">150</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="editable">False</property>
-            <property name="wrap_mode">word</property>
-            <property name="justification">center</property>
-            <property name="buffer">gtk_buffer</property>
-            <property name="accepts_tab">False</property>
-            <property name="monospace">True</property>
-            <style>
-              <class name="output"/>
-            </style>
-          </object>
-          <packing>
-            <property name="y">339</property>
           </packing>
         </child>
         <child>
@@ -184,7 +165,7 @@ Soham Kar</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Wordlist</property>
                 <style>
-                  <class name="wordlistlbl"/>
+                  <class name="text"/>
                 </style>
               </object>
               <packing>
@@ -198,7 +179,7 @@ Soham Kar</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Algorithm</property>
                 <style>
-                  <class name="algorithmlbl"/>
+                  <class name="text"/>
                 </style>
               </object>
               <packing>
@@ -256,16 +237,6 @@ Soham Kar</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem" id="main_menu_quit">
-                        <property name="label">gtk-quit</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
-                        <signal name="activate" handler="gtk_main_quit" swapped="no"/>
-                      </object>
-                    </child>
-                    <child>
                       <object class="GtkImageMenuItem" id="main_menu_refresh">
                         <property name="label">gtk-refresh</property>
                         <property name="visible">True</property>
@@ -273,6 +244,22 @@ Soham Kar</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <signal name="activate" handler="populate_widget" swapped="no"/>
+                        <style>
+                          <class name="submenuChild"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="main_menu_quit">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="gtk_main_quit" swapped="no"/>
+                        <style>
+                          <class name="submenuChild"/>
+                        </style>
                       </object>
                     </child>
                   </object>
@@ -300,6 +287,9 @@ Soham Kar</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <signal name="activate" handler="gtk_widget_show" object="aboutdialog" swapped="yes"/>
+                        <style>
+                          <class name="submenuChild"/>
+                        </style>
                       </object>
                     </child>
                   </object>
@@ -318,10 +308,36 @@ Soham Kar</property>
             <property name="y">1</property>
           </packing>
         </child>
+        <child>
+          <object class="GtkLabel" id="outputLabel">
+            <property name="name">outputLabel</property>
+            <property name="width_request">500</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="y">350</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="themeBox">
+            <property name="name">themeBox</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <signal name="changed" handler="changeTheme" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">327</property>
+            <property name="y">32</property>
+          </packing>
+        </child>
         <style>
           <class name="layout"/>
         </style>
       </object>
     </child>
+    <style>
+      <class name="mainWindow"/>
+    </style>
   </object>
 </interface>
