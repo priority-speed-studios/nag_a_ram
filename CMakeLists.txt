@@ -9,6 +9,8 @@ add_custom_target(plugins ALL
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/plugins)
 
 FILE(GLOB CSources src/*.c)
+file(GLOB CSS "layouts/*.css")
+file(COPY ${CSS} DESTINATION ./stylesheets/)
 add_executable(${PROJECT_NAME} ${CSources})
 target_include_directories(${PROJECT_NAME} PRIVATE ./includes)
 
@@ -25,5 +27,5 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${GTK3_LIBRARIES} ${CMAKE_DL_LIBS})
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/layouts/mainWindow.xml
     ${CMAKE_CURRENT_BINARY_DIR}/mainWindow.xml)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/layouts/stylesheets.css
-    ${CMAKE_CURRENT_BINARY_DIR}/stylesheets.css COPYONLY)
+#configure_file(${CMAKE_CURRENT_SOURCE_DIR}/layouts/stylesheets.css
+    #${CMAKE_CURRENT_BINARY_DIR}/stylesheets.css COPYONLY)

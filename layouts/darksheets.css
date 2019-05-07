@@ -1,10 +1,7 @@
-* {
-    font-size: 20px;
+.mainWindow {
+    background-color: #31363b;
 }
 
-.mainWindow {
-    background-color: #f4f4f4;
-}
 .button {
     background: #ADFF2F;
     font-size: 16px;
@@ -19,7 +16,7 @@
     border-style: inset;
 }
 .menubar {
-    background-color: #f4f4f4;
+    /*background: #00000000;*//*#ADFF2F;*/
     color: #000000;
 }
 .fileitem {
@@ -41,21 +38,4 @@
 .output {
     border-style: inset;
 }
-.text {
-    color: #0B0B0B;
-}
-#spaceT {
-    background-color: #f4f4f4;
-    color: #000000;
-}
-.submenuChild {
-    background-color: #0d6bed;
-    color: #050505;
-}
-.submenuChild:hover {
-    background-color: #f29412;
-    color: #ffffff;
-}
-#outputLabel {
-    color: black;
-}
+
