@@ -67,6 +67,8 @@ void populate_widget()
 
 void changeTheme()
 {
+    if(pluginsState)
+        return;
     char fileName[50] = "./stylesheets/";
     strcat(fileName,gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(
                                            gtk_builder_get_object(builder,widgetName(themeBox)))));
