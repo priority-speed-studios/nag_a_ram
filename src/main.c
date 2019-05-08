@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <linux/inotify.h>
+#include <gio/gio.h>
 #include "loader.h"
 
 StringFunctions algorithm=NULL;
@@ -92,6 +92,10 @@ void check()
 
 int main(int argc, char** argv)
 {
+    GFileMonitor *stylemon = g_file_monitor_directory(g_file_new_for_path("./stylesheets"),
+                                                     G_FILE_MONITOR_WATCH_MOVES,NULL,NULL),
+            *plugmon = g_file_monitor_directory(g_file_new_for_path("./plugs"),
+                                                G_FILE_MONITOR_WATCH_MOVES,NULL,NULL);
     gtk_init(&argc, &argv);
     builder = gtk_builder_new_from_file(widgetName(./mainWindow.xml));
     GtkWindow* window= GTK_WINDOW(gtk_builder_get_object(builder, widgetName(window_main)));
@@ -105,8 +109,12 @@ int main(int argc, char** argv)
     gtk_widget_show(GTK_WIDGET(window));
     gtk_builder_connect_signals(builder, NULL);
     populate_widget();
+    g_signal_connect (stylemon, "changed", populate_widget, NULL);
+    g_signal_connect (plugmon, "changed", populate_widget, NULL);
     gtk_main();
     g_object_unref(builder);
+    g_object_unref(stylemon);
+    g_object_unref(plugmon);
     return 0;
 }
 
