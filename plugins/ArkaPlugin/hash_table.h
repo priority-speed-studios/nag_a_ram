@@ -13,7 +13,7 @@ unsigned int hash_table_value(const void* _var)
 	while(g_hash_table_iter_next(&i, &k, &v))
 		hash += *((int*) k) * *((int*) k) + *((int*) k) + *((int*) v);
 	/*
-		Szudizk's Function for x >= y
+		Szudzik's Function for x >= y
 		Here, *((int*) k) >= *((int*) v)
 	*/
 	
