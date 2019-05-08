@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <linux/inotify.h>
 #include "loader.h"
 
 StringFunctions algorithm=NULL;
@@ -67,7 +68,6 @@ void populate_widget()
 void changeTheme()
 {
     char fileName[50] = "./stylesheets/";
-    printf("Triggered");
     strcat(fileName,gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(
                                            gtk_builder_get_object(builder,widgetName(themeBox)))));
     gtk_css_provider_load_from_path(cssProvider, fileName, NULL);
@@ -94,11 +94,9 @@ int main(int argc, char** argv)
     builder = gtk_builder_new_from_file(widgetName(./mainWindow.xml));
     GtkWindow* window= GTK_WINDOW(gtk_builder_get_object(builder, widgetName(window_main)));
     cssProvider = gtk_css_provider_new();
-    //gtk_css_provider_load_from_path(cssProvider, widgetName(./stylesheets.css), NULL);
     gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
                                               GTK_STYLE_PROVIDER(cssProvider),
                                               GTK_STYLE_PROVIDER_PRIORITY_USER);
-    //gtk_css_provider_load_from_path(cssProvider, widgetName(./stylesheets.css), NULL);
     gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(
                                             gtk_builder_get_object(builder,widgetName(wordlist))),
                                         "../wordlists/");
