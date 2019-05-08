@@ -8,6 +8,8 @@ GtkBuilder* builder=NULL;
 static GtkCssProvider *cssProvider;
 int pluginsState=0;
 
+void changeTheme(void);
+
 void clear()
 {
     GtkLabel* output_label = GTK_LABEL(gtk_builder_get_object(builder, widgetName(outputLabel)));
@@ -63,6 +65,7 @@ void populate_widget()
     closedir(d);
     gtk_combo_box_set_active(GTK_COMBO_BOX(combo),0);
     pluginsState=0;
+    changeTheme();
 }
 
 void changeTheme()
@@ -108,9 +111,9 @@ int main(int argc, char** argv)
                                         "../wordlists/");
     gtk_widget_show(GTK_WIDGET(window));
     gtk_builder_connect_signals(builder, NULL);
-    populate_widget();
     g_signal_connect (stylemon, "changed", populate_widget, NULL);
     g_signal_connect (plugmon, "changed", populate_widget, NULL);
+    populate_widget();
     gtk_main();
     g_object_unref(builder);
     g_object_unref(stylemon);
