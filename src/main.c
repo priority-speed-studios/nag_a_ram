@@ -7,6 +7,14 @@ GtkBuilder* builder=NULL;
 static GtkCssProvider *cssProvider;
 int pluginsState=0;
 
+void clear()
+{
+    GtkLabel* output_label = GTK_LABEL(gtk_builder_get_object(builder, widgetName(outputLabel)));
+    GtkEntry* input_label = GTK_ENTRY(gtk_builder_get_object(builder, widgetName(inputLabel)));
+    gtk_label_set_text(output_label, "");
+    gtk_entry_set_text(input_label, "");
+}
+
 int EndsWith(const char *str, const char *suffix)
 {
     if (!str || !suffix)
