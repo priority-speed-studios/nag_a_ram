@@ -6,12 +6,12 @@
     background-color: #f4f4f4;
 }
 .button {
-    background: #ADFF2F;
+    background: #87ceeb;
     font-size: 16px;
 }
 .button:hover {
     transition: 200ms ease-in-out;
-    background: #7CFC00;
+    background: #00bfff;
     color: white;
     font-size: 16px;
 }
@@ -23,20 +23,20 @@
     color: #000000;
 }
 .fileitem {
-    background-color: #ADFF2F;
+    background-color: #87ceeb;
     border-style: inset;
     border-color: white;
 }
 .fileitem:hover {
-    background: #ff00ff;
+    background: #40e0d0;
 }
 .helpitem {
-    background-color: #ADFF2F;
+    background-color: #87ceeb;
     border-style: inset;
     border-color: white;
 }
 .helpitem:hover {
-    background: #ff00ff;
+    background: #40e0d0;
 }
 .output {
     border-style: inset;
@@ -49,11 +49,13 @@
     color: #000000;
 }
 .submenuChild {
-    background-color: #0d6bed;
+    background-color: #48d1cc;
     color: #050505;
 }
 .submenuChild:hover {
-    background-color: #f29412;
+    border-style: inset;
+    transition: 200ms ease-in-out;
+    background-color: #00ced1;
     color: #ffffff;
 }
 #outputLabel {
