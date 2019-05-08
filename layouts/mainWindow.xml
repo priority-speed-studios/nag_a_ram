@@ -237,13 +237,26 @@ Soham Kar</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
+                      <object class="GtkImageMenuItem" id="main_menu_clear">
+                        <property name="label">gtk-clear</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="clear" swapped="no"/>
+                        <style>
+                          <class name="submenuChild"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
                       <object class="GtkImageMenuItem" id="main_menu_refresh">
                         <property name="label">gtk-refresh</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="clear" swapped="no"/>
+                        <signal name="activate" handler="populate_widget" swapped="no"/>
                         <style>
                           <class name="submenuChild"/>
                         </style>
