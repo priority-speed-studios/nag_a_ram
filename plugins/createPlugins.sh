@@ -7,4 +7,5 @@ for d in */; do
 	cd $d;
 	gcc -shared -o ../plugs/lib${d%?}.so -fPIC *.c $(cat libs.txt 2>/dev/null)
 	cd ..;
+cp -r ./plugs $1
 done

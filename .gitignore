@@ -2,3 +2,4 @@
 Desktop*/
 *.so
 *.xml~
+/build
