@@ -29,6 +29,24 @@ int EndsWith(const char *str, const char *suffix)
     return strncmp(str + lenstr - lensuffix, suffix, lensuffix) == 0;
 }
 
+void toggledButton()
+{
+    static gboolean toggle = FALSE;
+    GtkWidget* credit = GTK_WIDGET(gtk_builder_get_object(builder,widgetName(creditLabel))),
+            *name= GTK_WIDGET(gtk_builder_get_object(builder,widgetName(nameLabel)));
+    if(toggle)
+    {
+        gtk_widget_hide(credit);
+        gtk_widget_show(name);
+    }
+    else
+    {
+        gtk_widget_show(credit);
+        gtk_widget_hide(name);
+    }
+    toggle = !toggle;
+}
+
 void populate_widget()
 {
     DIR *d;

@@ -28,21 +28,16 @@ Author: Anubhab Mukherjee, Arkajyoti Banerjee, Soham Kar
   <!-- interface-description A fast, anagram solver built using C and the GTK+ framework -->
   <!-- interface-copyright 2019 -->
   <!-- interface-authors Anubhab Mukherjee, Arkajyoti Banerjee, Soham Kar -->
-  <object class="GtkAboutDialog" id="aboutdialog">
+  <object class="GtkDialog" id="abouts">
+    <property name="width_request">200</property>
     <property name="can_focus">False</property>
-    <property name="resizable">False</property>
+    <property name="title" translatable="yes">About Me</property>
+    <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
-    <property name="program_name">nag_a_ram</property>
-    <property name="version">v${PROJECT_VERSION}</property>
-    <property name="comments" translatable="yes">A fast, anagram solver built using C and the GTK+ framework</property>
-    <property name="authors">Anubhab Mukherjee
-Arkajyoti Banerjee
-Soham Kar</property>
-    <property name="logo_icon_name">help-about</property>
-    <property name="license_type">gpl-3-0</property>
-    <signal name="delete-event" handler="gtk_widget_hide" swapped="no"/>
-    <child type="titlebar">
+    <property name="deletable">False</property>
+    <signal name="close" handler="gtk_widget_hide" swapped="no"/>
+    <child>
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -51,28 +46,128 @@ Soham Kar</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="aboutBox">
+          <object class="GtkButtonBox">
             <property name="can_focus">False</property>
-            <property name="events">GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON1_MOTION_MASK | GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK | GDK_FOCUS_CHANGE_MASK | GDK_STRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK | GDK_VISIBILITY_NOTIFY_MASK | GDK_PROXIMITY_IN_MASK | GDK_PROXIMITY_OUT_MASK | GDK_SUBSTRUCTURE_MASK | GDK_SCROLL_MASK | GDK_TOUCH_MASK | GDK_SMOOTH_SCROLL_MASK | GDK_TOUCHPAD_GESTURE_MASK | GDK_TABLET_PAD_MASK</property>
-            <property name="homogeneous">True</property>
             <property name="layout_style">end</property>
-            <child type="center">
-              <placeholder/>
+            <child>
+              <object class="GtkLinkButton">
+                <property name="label" translatable="yes">License</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="uri">https://www.gnu.org/licenses/gpl-3.0.html</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="creditButton">
+                <property name="label" translatable="yes">Credits</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="toggled" handler="toggledButton" swapped="yes"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">Close</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="activate" handler="gtk_widget_hide" object="abouts" swapped="yes"/>
+                <signal name="clicked" handler="gtk_widget_hide" object="abouts" swapped="yes"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
             </child>
           </object>
           <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="pack_type">end</property>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
             <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkGrid">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="nameLabel">
+                <property name="width_request">300</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="label" translatable="yes">&lt;span font="Lato Light Italic"&gt;
+&lt;b&gt;Angram Solver&lt;/b&gt;
+
+v${PROJECT_VERSION}
+Anagram Solver 
+&lt;small&gt;A dynamic anagram solving 
+application by&lt;/small&gt; &lt;b&gt;Priority Queue Studios&lt;/b&gt;
+&lt;/span&gt;
+&lt;span size="x-large" font="Lato Hairline Italic"&gt;Made with &lt;span foreground="red"&gt;❤&lt;/span&gt; in &lt;s&gt;India&lt;/s&gt; C &amp;amp; GTK+&lt;/span&gt;
+
+&lt;small&gt;This program comes with absolutely no warranty.
+See the &lt;a href="https://www.gnu.org/licenses/gpl-3.0.html"&gt;GNU General Public License,
+version 3&lt;/a&gt; or later for details.&lt;/small&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="justify">center</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage">
+                <property name="width_request">310</property>
+                <property name="height_request">100</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixbuf">logo.png</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="creditLabel">
+                <property name="width_request">300</property>
+                <property name="can_focus">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Credits&lt;/b&gt;
+&lt;a href="https://github.com/Snowden1738"&gt;Arkajyoti Banerjee&lt;/a&gt;
+&lt;a href="https://github.com/phoenix-zero"&gt;Anubhab Mukherjee&lt;/a&gt;
+&lt;a href="https://github.com/2bit-hack"&gt;Soham Kar&lt;/a&gt;</property>
+                <property name="use_markup">True</property>
+                <property name="justify">center</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+                <property name="height">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
         </child>
       </object>
     </child>
-    <accelerator key="F4" signal="close" modifiers="GDK_MOD1_MASK"/>
   </object>
   <object class="GtkFileFilter" id="algoFilter">
     <patterns>
@@ -91,8 +186,10 @@ Soham Kar</property>
     <property name="width_request">500</property>
     <property name="height_request">600</property>
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Priority Speed Anagram Solver</property>
+    <property name="icon">logo.png</property>
     <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child>
@@ -299,7 +396,7 @@ Soham Kar</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="gtk_widget_show" object="aboutdialog" swapped="yes"/>
+                        <signal name="activate" handler="gtk_widget_show" object="abouts" swapped="yes"/>
                         <style>
                           <class name="submenuChild"/>
                         </style>
@@ -340,6 +437,8 @@ Soham Kar</property>
             <signal name="changed" handler="changeTheme" swapped="no"/>
           </object>
           <packing>
+            <property name="x">320</property>
+            <property name="y">30</property>
             <property name="x">327</property>
             <property name="y">32</property>
           </packing>
