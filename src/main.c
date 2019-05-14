@@ -12,7 +12,8 @@ void changeTheme(void);
 
 void clear()
 {
-    GtkLabel* output_label = GTK_LABEL(gtk_builder_get_object(builder, widgetName(outputLabel)));
+    GtkLabel* output_label = GTK_LABEL(gtk_builder_get_object(builder,
+                                                              widgetName(outputLabel)));
     GtkEntry* input_label = GTK_ENTRY(gtk_builder_get_object(builder, widgetName(inputLabel)));
     gtk_label_set_text(output_label, "");
     gtk_entry_set_text(input_label, "");
@@ -77,7 +78,10 @@ void populate_widget()
             if(dir->d_type != DT_REG)
                 continue;
             if(EndsWith(dir->d_name,".css"))
+            {
+                dir->d_name[strlen(dir->d_name)-4]=0;
                 gtk_combo_box_text_append_text(combo, dir->d_name);
+            }
         }
     }
     closedir(d);
@@ -91,8 +95,10 @@ void changeTheme()
     if(pluginsState)
         return;
     char fileName[50] = "./stylesheets/";
-    strcat(fileName,gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(
-                                           gtk_builder_get_object(builder,widgetName(themeBox)))));
+    strcat(fileName,
+           gtk_combo_box_text_get_active_text(
+               GTK_COMBO_BOX_TEXT(gtk_builder_get_object(builder,widgetName(themeBox)))));
+    strcat(fileName, ".css");
     gtk_css_provider_load_from_path(cssProvider, fileName, NULL);
     gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
                                               GTK_STYLE_PROVIDER(cssProvider),
@@ -114,7 +120,7 @@ void check()
 int main(int argc, char** argv)
 {
     GFileMonitor *stylemon = g_file_monitor_directory(g_file_new_for_path("./stylesheets"),
-                                                     G_FILE_MONITOR_WATCH_MOVES,NULL,NULL),
+                                                      G_FILE_MONITOR_WATCH_MOVES,NULL,NULL),
             *plugmon = g_file_monitor_directory(g_file_new_for_path("./plugs"),
                                                 G_FILE_MONITOR_WATCH_MOVES,NULL,NULL);
     gtk_init(&argc, &argv);
@@ -124,8 +130,8 @@ int main(int argc, char** argv)
     gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
                                               GTK_STYLE_PROVIDER(cssProvider),
                                               GTK_STYLE_PROVIDER_PRIORITY_USER);
-    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(
-                                            gtk_builder_get_object(builder,widgetName(wordlist))),
+    gtk_file_chooser_set_current_folder(
+                GTK_FILE_CHOOSER(gtk_builder_get_object(builder,widgetName(wordlist))),
                                         "../wordlists/");
     gtk_widget_show(GTK_WIDGET(window));
     gtk_builder_connect_signals(builder, NULL);
