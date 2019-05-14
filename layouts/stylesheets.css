@@ -1,10 +1,17 @@
+* {
+    font-size: 20px;
+}
+
+.mainWindow {
+    background-color: #f4f4f4;
+}
 .button {
-    background: #ADFF2F;
+    background: #87ceeb;
     font-size: 16px;
 }
 .button:hover {
     transition: 200ms ease-in-out;
-    background: #7CFC00;
+    background: #00bfff;
     color: white;
     font-size: 16px;
 }
@@ -12,22 +19,45 @@
     border-style: inset;
 }
 .menubar {
-    background: #ADFF2F;
+    background-color: #f4f4f4;
     color: #000000;
 }
 .fileitem {
+    background-color: #87ceeb;
     border-style: inset;
+    border-color: white;
 }
 .fileitem:hover {
-    background: #ff00ff;
+    background: #40e0d0;
 }
 .helpitem {
+    background-color: #87ceeb;
     border-style: inset;
+    border-color: white;
 }
 .helpitem:hover {
-    background: #ff00ff;
+    background: #40e0d0;
 }
 .output {
     border-style: inset;
 }
-
+.text {
+    color: #0B0B0B;
+}
+#spaceT {
+    background-color: #f4f4f4;
+    color: #000000;
+}
+.submenuChild {
+    background-color: #48d1cc;
+    color: #050505;
+}
+.submenuChild:hover {
+    border-style: inset;
+    transition: 200ms ease-in-out;
+    background-color: #00ced1;
+    color: #ffffff;
+}
+#outputLabel {
+    color: black;
+}

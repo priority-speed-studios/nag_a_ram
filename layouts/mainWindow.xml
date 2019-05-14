@@ -439,6 +439,8 @@ version 3&lt;/a&gt; or later for details.&lt;/small&gt;</property>
           <packing>
             <property name="x">320</property>
             <property name="y">30</property>
+            <property name="x">327</property>
+            <property name="y">32</property>
           </packing>
         </child>
         <style>
