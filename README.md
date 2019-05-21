@@ -1,6 +1,6 @@
 # nag_a_ram
 
-A simple project aimed to finding the anagrams of any given word with the least time possible
+A simple project aimed to find the anagrams of any given word with the least time possible
 
 ## Prerequisites
 
