@@ -7,10 +7,11 @@ project(nag_a_ram
 add_custom_target(plugins ALL
     COMMAND "./createPlugins.sh" "${CMAKE_CURRENT_BINARY_DIR}"
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/plugins)
+add_custom_target(stylesheets ALL
+    COMMAND "./createCSS.sh" "${CMAKE_CURRENT_BINARY_DIR}"
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 FILE(GLOB CSources src/*.c)
-file(GLOB CSS "layouts/*.css")
-file(COPY ${CSS} DESTINATION ./stylesheets/)
 add_executable(${PROJECT_NAME} ${CSources})
 target_include_directories(${PROJECT_NAME} PRIVATE ./includes)
 
