@@ -1,5 +1,10 @@
 #include <glib.h>
 
+unsigned int hash_table_value(const void*);
+int hash_table_equal(const void*, const void*);
+
+GHashTable* charset(char*);
+
 unsigned int hash_table_value(const void* _var)
 {
 	GHashTable* var = (GHashTable*) _var;
