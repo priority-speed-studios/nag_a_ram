@@ -32,6 +32,40 @@ GLib is a bundle of three (formerly five) low-level system libraries written in 
 
 Refer to [Wikipedia](https://en.wikipedia.org/wiki/GLib) for more info on GLib
 
+## Installation
+
+- Get the sources from either the Git repository or the CD included with this document.
+
+```           
+git clone https://github.com/2bit-hack/nag_a_ram.git
+or
+git clone git@github.com:2bit-hack/nag_a_ram.git
+```
+
+- Create a build folder in the primary folder. The path should look like this:
+
+```
+/path/to/nag_a_ram/build
+```
+
+Now, change directory to the directory
+
+```
+cd build
+```
+
+- Buid the project like
+
+```
+cmake .. && make
+```
+
+- Run the app
+
+```
+./nag_a_ram
+```
+
 ## Authors
 
 - **Arkajyoti Banerjee** - [Snowden1738](https://github.com/Snowden1738)
