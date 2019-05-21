@@ -66,22 +66,3 @@ char* task(char* s)
 	
 	return sol;
 }
-
-/* This is only for demonstration purposes */
-/*
-int main()
-{
-	setup("dictionary.txt");
-	
-	printf("Loaded!\n");
-	
-	char s[25];
-	scanf("%s", s);
-	
-	printf("\n");
-	
-	printf("%s", task(s));
-
-	return 0;
-}
-*/
