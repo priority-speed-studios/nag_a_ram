@@ -2,6 +2,9 @@
 #include "forward_list.h"
 #include "hash_table.h"
 
+int setup(const char*);
+char* task(char*);
+
 GHashTable* map;
 
 int setup(const char* filename)
@@ -32,9 +35,7 @@ int setup(const char* filename)
 		}
 		else
 		{
-			forward_list* list = (forward_list*) malloc(sizeof(forward_list));
-			list -> begin = list -> end = NULL;
-			
+			forward_list* list = forward_list_new();
 			insert(list, s);
 			
 			g_hash_table_insert(map, cs, list);
