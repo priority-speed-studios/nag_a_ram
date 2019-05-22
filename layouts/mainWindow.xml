@@ -109,7 +109,7 @@ Author: Anubhab Mukherjee, Arkajyoti Banerjee, Soham Kar
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="label" translatable="yes">&lt;span font="Lato Light Italic"&gt;
-&lt;b&gt;Angram Solver&lt;/b&gt;
+&lt;b&gt;Anagram Solver&lt;/b&gt;
 
 v${PROJECT_VERSION}
 Anagram Solver 
