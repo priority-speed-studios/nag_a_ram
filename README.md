@@ -1,3 +1,5 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 # nag_a_ram
 
 A simple project aimed to find the anagrams of any given word with the least time possible
