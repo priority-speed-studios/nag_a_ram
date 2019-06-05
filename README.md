@@ -39,9 +39,9 @@ Refer to [Wikipedia](https://en.wikipedia.org/wiki/GLib) for more info on GLib
 - Get the sources from either the Git repository or the CD included with this document.
 
 ```           
-git clone https://github.com/2bit-hack/nag_a_ram.git
+git clone https://github.com/priority-speed-studios/nag_a_ram.git
 or
-git clone git@github.com:2bit-hack/nag_a_ram.git
+git clone git@github.com:priority-speed-studios/nag_a_ram.git
 ```
 
 - Create a build folder in the primary folder. The path should look like this:
