@@ -56,6 +56,19 @@ Now, change directory to the directory
 cd build
 ```
 
+- Initialize submodules with
+
+```
+git submodule init
+git submodule update
+```
+
+- Make sure createCSS.sh has permission to run, if not
+
+```
+sudo chmod +x createCSS.sh
+```
+
 - Buid the project like
 
 ```
