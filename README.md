@@ -50,7 +50,7 @@ git clone git@github.com:priority-speed-studios/nag_a_ram.git
 /path/to/nag_a_ram/build
 ```
 
-Now, change directory to the directory
+- Now, change directory to the directory
 
 ```
 cd build
